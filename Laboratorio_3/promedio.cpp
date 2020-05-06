@@ -1,5 +1,5 @@
 #include <iostream>
-//Incluyendo librerias para la validación de datos.
+//Se incluyen librerias para la validación de datos.
 #include <string>
 #include <cstdlib>
 
@@ -14,31 +14,31 @@ float convertir(string numero){ //Se pone como argumento el string del numero
         y alguno de sus caracteres no coincida con los permitidos:  */
     while(cin >> numero && numero.find_first_not_of("1234567890.-") != string::npos){
 
-        //Advertir y solicitar un nuevo número
+        //Se advierte el error
         cout << "Numero invalido." << endl;
         cout << "Por favor intente de nuevo: ";
 
-        //Borrar la entrada anterior 
+        //Se borra la entrada anterior 
         cin.clear();
 
-        //Descartar la entrada anterior
+        //Se descarta la entrada anterior
         cin.ignore(123, '\n');
     }
 
-    //En caso de haber introducido un número válido, devolverlo convertido a float.
+    //En caso de haber introducido un número válido, se devuelve convertido a float.
     return atof(numero.c_str() );
 }
 
 int main(){
-   //Declarando variables string para los números
+   //Se declaran variables tipo string para la entrada de numeros. 
     string num1 , num2, num3;
-    //Declarando floats para luego almacenar los strings convertidos y el promedio
+    //Se declaran floats para luego almacenar los strings convertidos y el promedio
     float a, b, c, promedio;
     
-    //Solicitando el numero
+    //Se solicita el numero
     cout << "Ingrese el primer numero: "; 
 
-    //Evaluando la entrada, en caso de ser válida, se guardará como un float en la variable indicada
+    //Se evalúa la entrada, en caso de ser válida, se guardará como un float en la variable indicada
     //De no ser así, se solicitará hasta que la entrada sea válida. 
     a = convertir(num1);
     
@@ -49,8 +49,10 @@ int main(){
     cout << "Ingrese el tercer numero: ";
     c = convertir(num3);
     
-    //Promediando las cantidades y almacenándolas en la variable. 
+    //Se promedian las cantidades y se almacenan en la variable
     promedio = (a+b+c)/3; 
+
+    //Se muetra el resultado. 
     cout << "El promedio es " << promedio << endl;
 
     
