@@ -4,19 +4,24 @@
 
 using namespace std;
 
+float convertir(string numero){
+    while(cin >> numero && numero.find_first_not_of("1234567890.-") != string::npos){
+        cout << "Numero invalido." << endl;
+        cout << "Por favor intente de nuevo: ";
+        cin.clear();
+        cin.ignore(123, '\n');
+    }
+    return atof(numero.c_str() );
+}
+
 int main(){
    
     string num1 , num2, num3;
     float a, b, c,promedio;
+    bool valido = false;
     
     cout << "Ingrese el primer numero: "; 
-    cin >> num1;
-
-    if(num1.find_first_not_of("1234567890.-") != string::npos){
-        cout << "Numero invalido";
-        return 0;
-    }
-    a = atof(num1.c_str());
+    a = convertir(num1);
     
    
     cout << "Ingrese el segundo numero: ";
