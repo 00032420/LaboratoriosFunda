@@ -55,7 +55,7 @@ int main(){
     //Se muetra el resultado. 
     cout << "El promedio es " << promedio << endl;
 
-    
+    system("pause");
     return 0;
 }
 
