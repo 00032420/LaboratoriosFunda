@@ -1,50 +1,66 @@
 #include <iostream>
+//Incluyendo librerias para la validación de datos.
 #include <string>
 #include <cstdlib>
 
 using namespace std;
 
-float convertir(string numero){
+/*La siguiente función verifica que se haya introducido 
+    un número válido y lo convierte de string a float*/
+
+float convertir(string numero){ //Se pone como argumento el string del numero
+
+    /*Mientras se introduzca un número
+        y alguno de sus caracteres no coincida con los permitidos:  */
     while(cin >> numero && numero.find_first_not_of("1234567890.-") != string::npos){
+
+        //Advertir y solicitar un nuevo número
         cout << "Numero invalido." << endl;
         cout << "Por favor intente de nuevo: ";
+
+        //Borrar la entrada anterior 
         cin.clear();
+
+        //Descartar la entrada anterior
         cin.ignore(123, '\n');
     }
+
+    //En caso de haber introducido un número válido, devolverlo convertido a float.
     return atof(numero.c_str() );
 }
 
 int main(){
-   
+   //Declarando variables string para los números
     string num1 , num2, num3;
-    float a, b, c,promedio;
-    bool valido = false;
+    //Declarando floats para luego almacenar los strings convertidos y el promedio
+    float a, b, c, promedio;
     
+    //Solicitando el numero
     cout << "Ingrese el primer numero: "; 
+
+    //Evaluando la entrada, en caso de ser válida, se guardará como un float en la variable indicada
+    //De no ser así, se solicitará hasta que la entrada sea válida. 
     a = convertir(num1);
     
    
     cout << "Ingrese el segundo numero: ";
-    cin >> num2;
-
-    if(num2.find_first_not_of("1234567890.-") != string::npos){
-        cout << "Numero invalido";
-        return 0;
-    }
-    b = atof(num2.c_str());
+    b = convertir(num2);
    
     cout << "Ingrese el tercer numero: ";
-    cin >> num3;
-
-    if(num3.find_first_not_of("1234567890.-") != string::npos){
-        cout << "Numero invalido";
-        return 0;
-    }
-    c = atof(num3.c_str());
+    c = convertir(num3);
     
+    //Promediando las cantidades y almacenándolas en la variable. 
     promedio = (a+b+c)/3; 
     cout << "El promedio es " << promedio << endl;
 
     
     return 0;
 }
+
+/*
+Fuentes:
+
+https://stackoverflow.com/questions/4271315/c-how-to-check-an-input-float-variable-for-valid-input
+https://www.youtube.com/watch?v=m2P5A4nR51g
+
+*/
