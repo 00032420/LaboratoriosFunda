@@ -17,11 +17,12 @@ float convertir(string numero){ //Se pone como argumento el string de la entrada
             cout << "El radio de un circulo no puede ser negativo." << endl;
         }
         //Se solicita nuevo numero
-        cout << "Por favor intente de nuevo: ";
+        cout << "Por favor intente de nuevo. " << endl << endl;
         //Se borra la entrada anterior
         cin.clear();
         //Se descarta la entrada anterior
         cin.ignore(123, '\n');
+        cout << "Ingrese el radio del circulo: ";
     }
     cout << endl;
     //Si se introdujo un numero valido, se devuelve convertido a float. 
