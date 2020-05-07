@@ -1,5 +1,5 @@
 #include <iostream>
-#include <string> //Para string a float
+#include <string> //Para string a float y validacion de datos
 #include <cstdlib> 
 #include <cmath> // para Pi y pow()
 #include <iomanip> //Para std__setpresicion
@@ -38,12 +38,6 @@ float perimetro(double radio){
     return 2 * M_PI * radio;
 }
 
-//Se define la aproximacion a dos decimales
-float aprox(double num){
-    float valor = (int)(num*100 + 0.5 );
-    return (float) valor/100;
-}
-
 int main(){
     //Se define la variable tipo string donde se introducirá el numero, y 
     string radio, rep;
@@ -51,30 +45,33 @@ int main(){
     float r, p, a;
     bool repetir; //Valor de repetición, si es verdadero el programa se reinicia para hacer las operaciones de nuevo.
     
-    //Se solicita la entrada del radio 
     do{
-    cout << "Ingrese el radio del circulo: ";
-    //Se verifica y convierte el radio, y a la vez se guarda en la variable numerica
-    r = convertir(radio);
+        //Se solicita la entrada del radio 
+        cout << "Ingrese el radio del circulo: ";
+        //Se verifica y convierte el radio, y a la vez se guarda en la variable numerica
+        r = convertir(radio);
 
-    //Se evaluan las funciones en con respecto al radio, y se guardan en sus respectivas variables
-    p = perimetro(r);
-    a = area(r);
+        //Se evaluan las funciones en con respecto al radio, y se guardan en sus respectivas variables
+        p = perimetro(r);
+        a = area(r);
     
-    //Se muestran los resultados, en fixed para evitar notacion cientifica y presicion de dos decimales
-    cout << "El perimetro del circulo es " << std::fixed << std::setprecision(2) << p << endl;
-    cout << "El area del circulo es " << std::fixed << std::setprecision(2) << a << endl;
-    cout << endl;
-    cout << "Desea repetir la operacion? [S/N] ";
-
-    cin >> rep;
-
-    if(rep == "s" || rep == "S"){
-        repetir = true;
+        //Se muestran los resultados, en fixed para evitar notacion cientifica y presicion de dos decimales
+        cout << "El perimetro del circulo es " << std::fixed << std::setprecision(2) << p << endl;
+        cout << "El area del circulo es " << std::fixed << std::setprecision(2) << a << endl;
         cout << endl;
-    } else {
-        repetir = false;
-    }
+        cout << "Desea repetir la operacion? [S/N] ";
+
+        //se pregunta si se quiere relizar la operación de nuevo
+        cin >> rep;
+
+            if(rep == "s" || rep == "S"){
+            //Si se introduce una s, mayuscula o minuscula, el valor repeteición queda verdadero y se repite el ciclo
+            repetir = true;
+            cout << endl;
+            } else {
+            //si no se introduce una s, el valor repeticion queda falso y se termina el programa. 
+            repetir = false;
+            }
 
     } while(repetir == true);
 
