@@ -34,7 +34,7 @@ float proyeccion_escalar(float producto, float sobre){
 
 string vectorm(float producto, float bx, float by, float bz, float magnitudb){
     float prim = abs(producto)/(pow(magnitudb,2));
-    return to_string(prim*bx) + "i " + to_string(prim*by) + "j " + to_string(prim*bz) + "k ";
+    return to_string(prim*bx) + "i, " + to_string(prim*by) + "j, " + to_string(prim*bz) + "k ";
 }
 
 float redondear(float var){
@@ -66,24 +66,24 @@ int main(){
     cout << "Z2: ";
     bz = convertir(k2);
     
-    m1 = magnitud(ax,ay,az); 
-    m2 = magnitud(bx,by,bz); 
-    pe = producto(ax,ay,az,bx,by,bz);
-    rad = angulo(pe, m1, m2);
+    m1 = redondear(magnitud(ax,ay,az)); 
+    m2 = redondear(magnitud(bx,by,bz)); 
+    pe = redondear(producto(ax,ay,az,bx,by,bz));
+    rad = redondear(angulo(pe, m1, m2));
     deg = redondear(rad*(180/pi));
-    proy1 = proyeccion_escalar(pe,m2);
-    proy2 = proyeccion_escalar(pe,m1);
-    vector_proy1 = vectorm(pe,bx,by,bz,m2);
-    vector_proy2 = vectorm(pe,ax,ay,az,m1);
+    proy1 = redondear(proyeccion_escalar(pe,m2));
+    proy2 = redondear(proyeccion_escalar(pe,m1));
+    vector_proy1 = vectorm((pe),(bx),(by),(bz),(m2));
+    vector_proy2 = vectorm((pe),(ax),(ay),(az),(m1));
 
-    cout << "La magnitud del primer vector es " << redondear(m1) << endl;
-    cout << "La magnitud del segundo vector es " << redondear(m2) << endl;
-    cout << "El producto escalar es " << redondear(pe) << endl;
-    cout << "El angulo entre ellos es " << redondear(rad) << " radianes/ " << deg << " grados" << endl;
-    cout << "La proyeccion de A sobre B es " << redondear(proy1) << endl;
-    cout << "El vector proyeccion de A sobre B es " << vector_proy1 << endl;
-    cout << "La proyeccion de B sobre A es " << redondear(proy2) << endl;
-    cout << "El vector proyeccion de B sobre A es " << vector_proy2 << endl;
+    cout << "La magnitud del primer vector es " << (m1) << endl;
+    cout << "La magnitud del segundo vector es " << (m2) << endl;
+    cout << "El producto escalar es " << (pe) << endl;
+    cout << "El angulo entre ellos es " << (rad) << " radianes/ " << deg << " grados" << endl;
+    cout << "La proyeccion del primero sobre el segundo es " << (proy1) << endl;
+    cout << "El vector proyeccion del primero sobre el segundo es " << vector_proy1 << endl;
+    cout << "La proyeccion del segundo sobre el primero es " << (proy2) << endl;
+    cout << "El vector proyeccion del segundo sobre el primero es " << vector_proy2 << endl;
 
 
     system("pause");
