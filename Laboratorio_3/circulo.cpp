@@ -39,6 +39,13 @@ float perimetro(double radio){
     return 2 * M_PI * radio;
 }
 
+//En caso de que sea 0, se advierte.
+void handleZero(double res){
+    if(res == 0){
+        cout << "El radio de un circulo debe ser mayor a 0." << endl;
+    }
+}
+
 int main(){
     //Se define la variable tipo string donde se introducirá el numero, y 
     string radio, rep;
@@ -59,6 +66,7 @@ int main(){
         //Se muestran los resultados, en fixed para evitar notacion cientifica y presicion de dos decimales
         cout << "El perimetro del circulo es " << std::fixed << std::setprecision(2) << p << endl;
         cout << "El area del circulo es " << std::fixed << std::setprecision(2) << a << endl;
+        handleZero(r);
         cout << endl;
         cout << "Desea repetir la operacion? [S/N] ";
 
