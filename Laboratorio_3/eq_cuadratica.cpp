@@ -25,6 +25,15 @@ float leer(string numero){ //Se pone como argumento el string de la entrada
     return atof(numero.c_str());
 }
 
+float rmas(float a, float b, float c, float dis){
+    return ((-b)+sqrt(dis))/(2*a);
+}
+
+float rmenos(float a, float b, float c, float dis){
+    return ((-b)-sqrt(dis))/(2*a);
+}
+
+
 
 
 int main(){
@@ -48,12 +57,21 @@ int main(){
         c = leer(x0);
 
         //Se guarda el valor del discriminante 
+        d = (b*b)-4*a*c;
+
+        if(d >0){
+            r1 = rmas(a,b,c,d);
+            r2 = rmenos(a,b,c,d);
+            cout << "X1: " << std::fixed << std::setprecision(2) << r1 << endl;
+            cout << "X2: " << std::fixed << std::setprecision(2) << r2 << endl;
+        } else if( d == 0){
+            r1 = rmas(a,b,c,d);
+            cout << "X: " << std::fixed << std::setprecision(2) << r2 << endl;
+        } else
+        {
+            cout << r3 << endl;
+        }
         
-    
-        //Se muestran los resultados, en fixed para evitar notacion cientifica y presicion de dos decimales
-        cout << "A es " << std::fixed << std::setprecision(2) << x2 << endl;
-        cout << "B es " << std::fixed << std::setprecision(2) << x1 << endl;
-        cout << "C es " << std::fixed << std::setprecision(2) << x0 << endl;
         cout << endl;
         cout << "Desea repetir la operacion? [S/N] ";
 
