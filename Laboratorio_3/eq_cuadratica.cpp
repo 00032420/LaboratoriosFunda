@@ -33,13 +33,26 @@ float rmenos(float a, float b, float c, float dis){
     return ((-b)-sqrt(dis))/(2*a);
 }
 
+float rcero(float a, float b){
+    return (-b)/(2*a);
+}
+
+string r_img1(float a, float b, float c, float dis){
+    string r = to_string( ((-b)+sqrt(-dis))/(2*a) );
+    return r + "i";
+}
+
+string r_img2(float a, float b, float c, float dis){
+    string r = to_string( ((-b)-sqrt(-dis))/(2*a) );
+    return r + "i";
+}
 
 
 
 int main(){
     //Se define la variable tipo string donde se introducirá el numero, y otro en caso de no tener solución 
-    string x2, x1, x0, r3, rep;
-    r3 = "La ecuacion no tiene solucion en los numeros reales.";
+    string x2, x1, x0,rep, img1, img2;
+    
     //Se definen las variables en donde se almacenara e radio y los calculos
     float a, b, c, d, r1, r2;
     bool repetir; //Valor de repetición, si es verdadero el programa se reinicia para hacer las operaciones de nuevo.
@@ -65,11 +78,16 @@ int main(){
             cout << "X1: " << std::fixed << std::setprecision(2) << r1 << endl;
             cout << "X2: " << std::fixed << std::setprecision(2) << r2 << endl;
         } else if( d == 0){
-            r1 = rmas(a,b,c,d);
-            cout << "X: " << std::fixed << std::setprecision(2) << r2 << endl;
+            r1 = rcero(a,b);
+            cout << "X: " << std::fixed << std::setprecision(2) << r1 << endl;
         } else
         {
-            cout << r3 << endl;
+            img1 = r_img1(a,b,c,d);
+            img2 = r_img1(a,b,c,d);
+            cout << "La ecuacion no tiene solucion en los numeros reales" << endl;
+            cout << "Pero si en los complejos :v" << endl << endl;
+            cout << "Raiz imaginaria 1: " << img1 << endl; 
+            cout << "Raiz imaginaria 2: " << img2 << endl; 
         }
         
         cout << endl;
