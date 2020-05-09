@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include <cmath>
 #include <sstream>
+#include <iomanip>
 
 using namespace std;
 
@@ -37,13 +38,21 @@ string vectorm(float producto, float bx, float by, float bz, float magnitudb){
     return to_string(prim*bx) + "i, " + to_string(prim*by) + "j, " + to_string(prim*bz) + "k ";
 }
 
+string entreAB(float ax, float ay, float az, float bx, float by, float bz){
+    return to_string(bx-ax) + "i, " + to_string(by-ay) + "j, " + to_string(bz-az) + "z";
+}
+
+string entreBA(float ax, float ay, float az, float bx, float by, float bz){
+    return to_string(ax-bx) + "i, " + to_string(ay-by) + "j, " + to_string(az-bz) + "z";
+}
+
 float redondear(float var){
     float value = (int) (var*100 + .5);
     return (float)value / 100;
 }
 
 int main(){
-    string i1, j1, k1, i2, j2, k2, vector_proy1, vector_proy2;
+    string i1, j1, k1, i2, j2, k2, vector_proy1, vector_proy2, ab,ba;
     
     float ax, ay, az, bx, by, bz, m1, m2, pe, rad, deg, proy1, proy2;
     long double pi = 3.14159265359;
@@ -66,25 +75,29 @@ int main(){
     cout << "Z2: ";
     bz = convertir(k2);
     
-    m1 = redondear(magnitud(ax,ay,az)); 
-    m2 = redondear(magnitud(bx,by,bz)); 
-    pe = redondear(producto(ax,ay,az,bx,by,bz));
-    rad = redondear(angulo(pe, m1, m2));
-    deg = redondear(rad*(180/pi));
-    proy1 = redondear(proyeccion_escalar(pe,m2));
-    proy2 = redondear(proyeccion_escalar(pe,m1));
+    m1 = (magnitud(ax,ay,az)); 
+    m2 = (magnitud(bx,by,bz)); 
+    pe = (producto(ax,ay,az,bx,by,bz));
+    rad = (angulo(pe, m1, m2));
+    deg = (rad*(180/pi));
+    proy1 = (proyeccion_escalar(pe,m2));
+    proy2 = (proyeccion_escalar(pe,m1));
     vector_proy1 = vectorm((pe),(bx),(by),(bz),(m2));
     vector_proy2 = vectorm((pe),(ax),(ay),(az),(m1));
+    ab = entreAB(ax,ay,az,bx,by,bz);
+    ba = entreBA(ax,ay,az,bx,by,bz);
+    
 
-    cout << "La magnitud del primer vector es " << (m1) << endl;
-    cout << "La magnitud del segundo vector es " << (m2) << endl;
-    cout << "El producto escalar es " << (pe) << endl;
-    cout << "El angulo entre ellos es " << (rad) << " radianes/ " << deg << " grados" << endl;
-    cout << "La proyeccion del primero sobre el segundo es " << (proy1) << endl;
+    cout << "La magnitud del primer vector es " <<  std::fixed << std::setprecision(2) << (m1) << endl;
+    cout << "La magnitud del segundo vector es " << std::fixed << std::setprecision(2) << (m2) << endl;
+    cout << "El producto escalar es " << std::fixed << std::setprecision(2) << (pe) << endl;
+    cout << "El angulo entre ellos es " << std::fixed << std::setprecision(2) << (rad) << " radianes/ " << std::fixed << std::setprecision(2) << deg << " grados" << endl;
+    cout << "La proyeccion del primero sobre el segundo es " << std::fixed << std::setprecision(2) << (proy1) << endl;
     cout << "El vector proyeccion del primero sobre el segundo es " << vector_proy1 << endl;
-    cout << "La proyeccion del segundo sobre el primero es " << (proy2) << endl;
+    cout << "La proyeccion del segundo sobre el primero es " << std::fixed << std::setprecision(2) << (proy2) << endl;
     cout << "El vector proyeccion del segundo sobre el primero es " << vector_proy2 << endl;
-
+    cout << "El vector entre el primero al segundo es " << ab << endl;
+    cout << "El vector entre el segundo al primero es " << ba << endl;
 
     system("pause");
     return 0;
