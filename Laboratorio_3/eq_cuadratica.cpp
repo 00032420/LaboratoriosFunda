@@ -25,6 +25,8 @@ float leer(string numero){ //Se pone como argumento el string de la entrada
     return atof(numero.c_str());
 }
 
+
+
 float rmas(float a, float b, float c, float dis){
     return ((-b)+sqrt(dis))/(2*a);
 }
@@ -37,16 +39,13 @@ float rcero(float a, float b){
     return (-b)/(2*a);
 }
 
-string r_img1(float a, float b, float c, float dis){
-    string r = to_string( ((-b)+sqrt(-dis))/(2*a) );
-    return r + "i";
+void r_comp(float a, float b, float c, float dis){
+    float parte_real = ( (-b)/(2*a));
+    float parte_img = ( sqrt( -dis)/(2*a));
+    
+    cout << "X1: " << parte_real << " + " << parte_img <<  "i" << endl;;
+    cout << "X2: " << parte_real << " - " << parte_img <<  "i" << endl;;
 }
-
-string r_img2(float a, float b, float c, float dis){
-    string r = to_string( ((-b)-sqrt(-dis))/(2*a) );
-    return r + "i";
-}
-
 
 
 int main(){
@@ -82,12 +81,10 @@ int main(){
             cout << "X: " << std::fixed << std::setprecision(2) << r1 << endl;
         } else
         {
-            img1 = r_img1(a,b,c,d);
-            img2 = r_img1(a,b,c,d);
-            cout << "La ecuacion no tiene solucion en los numeros reales" << endl;
+            
+            cout << "La ecuacion no tiene solucion en los numeros reales." << endl;
             cout << "Pero si en los complejos :v" << endl << endl;
-            cout << "Raiz imaginaria 1: " << img1 << endl; 
-            cout << "Raiz imaginaria 2: " << img2 << endl; 
+            r_comp(a,b,c,d);
         }
         
         cout << endl;
