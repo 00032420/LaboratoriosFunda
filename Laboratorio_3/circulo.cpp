@@ -8,7 +8,7 @@
 using namespace std;
 
 //Se verifica que el numero sea valido
-float convertir(string numero){ //Se pone como argumento el string de la entrada
+float leer(string numero){ //Se pone como argumento el string de la entrada
     //Si la entrada contiene algun simbolo no admitido o fuera de rango, se hace lo siguiente:
     while(cin >> numero && numero.find_first_not_of("1234567890.") != string::npos){
         //Se muestra la advertencia
@@ -57,7 +57,7 @@ int main(){
         //Se solicita la entrada del radio 
         cout << "Ingrese el radio del circulo: ";
         //Se verifica y convierte el radio, y a la vez se guarda en la variable numerica
-        r = convertir(radio);
+        r = leer(radio);
 
         //Se evaluan las funciones en con respecto al radio, y se guardan en sus respectivas variables
         p = perimetro(r);
