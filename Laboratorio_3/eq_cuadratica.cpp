@@ -60,9 +60,15 @@ void d_negativo(float a, float b, float c, float dis){
     cout << "La ecuacion no tiene solucion en los numeros reales." << endl;
     cout << "Pero si en los complejos:" << endl << endl;
 
-    
-    cout << "X1: " << parte_real << " + " << std::fixed << std::setprecision(2) << parte_img <<  "i" << endl;;
-    cout << "X2: " << parte_real << " - " << std::fixed << std::setprecision(2) << parte_img <<  "i" << endl;;
+    if(parte_img > 0){
+
+        cout << "X1: " << parte_real << " + " << std::fixed << std::setprecision(2) << parte_img <<  "i" << endl;
+        cout << "X2: " << parte_real << " - " << std::fixed << std::setprecision(2) << parte_img <<  "i" << endl;;
+    } else {
+        cout << "X1: " << parte_real << std::fixed << std::setprecision(2) << " - " << (-parte_img) <<  "i" << endl;
+        cout << "X2: " << parte_real << " + " << std::fixed << std::setprecision(2) << (-parte_img) <<  "i" << endl;;
+
+    }
 }
 
 
