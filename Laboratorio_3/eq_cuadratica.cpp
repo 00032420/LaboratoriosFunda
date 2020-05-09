@@ -9,7 +9,7 @@ using namespace std;
 
 //Se verifica que el numero sea valido
 float leer(string numero){ //Se pone como argumento el string de la entrada
-    //Si la entrada contiene algun simbolo no admitido o fuera de rango, se hace lo siguiente:
+    //Si la entrada contiene algun simbolo no admitido, se hace lo siguiente:
     while(cin >> numero && numero.find_first_not_of("1234567890.-") != string::npos){
         //Se muestra la advertencia
         cout << endl << "Numero invalido" << endl;
@@ -25,7 +25,7 @@ float leer(string numero){ //Se pone como argumento el string de la entrada
     return atof(numero.c_str());
 }
 
-//Función para reiniciar el programa. 
+//Función para reiniciar el programa. Ek argumento de el valor de repeticion
 bool reiniciar(bool repetir){
 
     cout << "Desea repetir la operacion? [S/N] ";
