@@ -8,21 +8,17 @@
 using namespace std;
 
 //Se verifica que el numero sea valido
-float convertir(string numero){ //Se pone como argumento el string de la entrada
+float leer(string numero){ //Se pone como argumento el string de la entrada
     //Si la entrada contiene algun simbolo no admitido o fuera de rango, se hace lo siguiente:
-    while(cin >> numero && numero.find_first_not_of("1234567890.") != string::npos){
+    while(cin >> numero && numero.find_first_not_of("1234567890.-") != string::npos){
         //Se muestra la advertencia
         cout << endl << "Numero invalido" << endl;
-        if(atof(numero.c_str()) < 0){ //si el numero ingresado es negativo, también se advierte
-            cout << "El radio de un circulo no puede ser negativo." << endl;
-        }
         //Se solicita nuevo numero
-        cout << "Por favor intente de nuevo. " << endl << endl;
+        cout << "Por favor intente de nuevo: ";
         //Se borra la entrada anterior
         cin.clear();
         //Se descarta la entrada anterior
         cin.ignore(123, '\n');
-        cout << "Ingrese el radio del circulo: ";
     }
     cout << endl;
     //Si se introdujo un numero valido, se devuelve convertido a float. 
@@ -32,23 +28,32 @@ float convertir(string numero){ //Se pone como argumento el string de la entrada
 
 
 int main(){
-    //Se define la variable tipo string donde se introducirá el numero, y 
-    string a, b, c;
+    //Se define la variable tipo string donde se introducirá el numero, y otro en caso de no tener solución 
+    string x2, x1, x0, r3, rep;
+    r3 = "La ecuacion no tiene solucion en los numeros reales.";
     //Se definen las variables en donde se almacenara e radio y los calculos
-    float x2, x1, x0;
+    float a, b, c, d, r1, r2;
     bool repetir; //Valor de repetición, si es verdadero el programa se reinicia para hacer las operaciones de nuevo.
     
     do{
         //Se solicita la entrada del radio 
         cout << "Ingrese A: ";
         //Se verifica y convierte el radio, y a la vez se guarda en la variable numerica
-        x2 = convertir(a);
+        a = leer(x2);
 
+        cout << "Ingrese B: ";
+        b = leer(x1);
+
+        cout << "Ingrese C: ";
+        c = leer(x0);
+
+        //Se guarda el valor del discriminante 
         
     
         //Se muestran los resultados, en fixed para evitar notacion cientifica y presicion de dos decimales
-        cout << "El perimetro del circulo es " << std::fixed << std::setprecision(2) << p << endl;
-        cout << "El area del circulo es " << std::fixed << std::setprecision(2) << a << endl;
+        cout << "A es " << std::fixed << std::setprecision(2) << x2 << endl;
+        cout << "B es " << std::fixed << std::setprecision(2) << x1 << endl;
+        cout << "C es " << std::fixed << std::setprecision(2) << x0 << endl;
         cout << endl;
         cout << "Desea repetir la operacion? [S/N] ";
 
