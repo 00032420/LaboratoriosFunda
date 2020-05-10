@@ -27,20 +27,14 @@ float leer(string numero){ //Se pone como argumento el string de la entrada
 
 //Función para reiniciar el programa. El argumento es el valor de repeticion
 bool reiniciar(bool repetir){
-
     cout << "Desea repetir la operacion? [S/N] ";
     //Se crea la variable para almacenar la respuesta del usuario
     string rep;
     //Se introduce la respuesta
     cin >> rep;
-
-        if(rep == "s" || rep == "S"){
-        //Si se introduce una s, mayuscula o minuscula, el valor repeteición queda verdadero y se repite el ciclo
-        cout << endl;
-        return true;
-        }
-        //si no se introduce una s, el valor repeticion queda falso y se termina el programa. 
-        return false;         
+    cout << endl;
+    //Si se introduce s, ya sea mayuscula o minuscula, devuelve verdadero, caso contrario devuelve falso.
+    return rep == "s" || rep == "S" ? true : false;       
 }
 
 
@@ -85,6 +79,7 @@ void d_negativo(float a, float b, float c, float dis){
         cout << "X1: " << parte_real << std::fixed << std::setprecision(2) << " - " << (-parte_img) <<  "i" << endl;
         cout << "X2: " << parte_real << " + " << std::fixed << std::setprecision(2) << (-parte_img) <<  "i" << endl;;
     }
+
 }
 
 
