@@ -2,7 +2,7 @@
 #include <string> //Para string a float y validacion de datos
 #include <cstdlib> 
 #include <cmath> // Para operaciones funciones matemáticas
-#include <iomanip> //Para la presicion de decimales y 
+#include <iomanip> //Para la presicion de decimales y modo fixed
 
 
 using namespace std;
@@ -79,7 +79,7 @@ void d_negativo(float a, float b, float c, float dis){
         cout << "X1: " << parte_real << std::fixed << std::setprecision(2) << " - " << (-parte_img) <<  "i" << endl;
         cout << "X2: " << parte_real << " + " << std::fixed << std::setprecision(2) << (-parte_img) <<  "i" << endl;;
     }
-
+    
 }
 
 
