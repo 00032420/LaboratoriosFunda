@@ -105,18 +105,8 @@ int main(){
         //Se guarda el valor del discriminante 
         d = (b*b)-4*a*c;
 
-
-        if(d >0){
-            //Se efectuan las operaciones en caso de que el discriminante sea positivo
-            d_positivo(a,b,c,d);
-        } else if( d == 0){
-            //Se calcula la unica solucion en caso de que el discriminante sea igual a cero
-            d_cero(a,b);  
-        } else {  
-            //Se calculan las soluciones complejas en caso de que el discriminante sea negativo
-            d_negativo(a,b,c,d);
-        }
-        
+        //Se evalúa el discriminante y se ejecuta la función respectiva a su caso
+        (d > 0) ? d_positivo(a,b,c,d): (d == 0) ? d_cero(a,b) : d_negativo(a,b,c,d);
         cout << endl;
 
         //Se pregunta si se quiere repetir la operacion. 

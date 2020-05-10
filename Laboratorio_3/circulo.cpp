@@ -37,7 +37,7 @@ bool reiniciar(bool repetir){
     cin  >> rep;
     cout << endl;
     //Si se introdujo una S mayuscula o minuscula, devuelve verdadero, sino falso.
-    return rep == "s" || rep == "S" ? true : false;
+    return (rep == "s" || rep == "S") ? true : false;
 }
 
 void area(double radio){
