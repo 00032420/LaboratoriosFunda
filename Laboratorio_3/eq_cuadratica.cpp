@@ -1,13 +1,13 @@
 #include <iostream>
 #include <string> //Para string a float y validacion de datos
 #include <cstdlib> 
-#include <cmath> // Para operaciones algebraicas
-#include <iomanip> //Para std__setpresicion
+#include <cmath> // Para operaciones funciones matemáticas
+#include <iomanip> //Para la presicion de decimales y 
 
 
 using namespace std;
 
-//Se verifica que el numero sea valido
+//Función que verifica que el numero sea valido
 float leer(string numero){ //Se pone como argumento el string de la entrada
     //Si la entrada contiene algun simbolo no admitido, se hace lo siguiente:
     while(cin >> numero && numero.find_first_not_of("1234567890.-") != string::npos){
@@ -25,7 +25,7 @@ float leer(string numero){ //Se pone como argumento el string de la entrada
     return atof(numero.c_str());
 }
 
-//Función para reiniciar el programa. Ek argumento de el valor de repeticion
+//Función para reiniciar el programa. El argumento es el valor de repeticion
 bool reiniciar(bool repetir){
 
     cout << "Desea repetir la operacion? [S/N] ";
@@ -33,6 +33,7 @@ bool reiniciar(bool repetir){
     string rep;
     //Se introduce la respuesta
     cin >> rep;
+
         if(rep == "s" || rep == "S"){
         //Si se introduce una s, mayuscula o minuscula, el valor repeteición queda verdadero y se repite el ciclo
         cout << endl;
@@ -45,6 +46,7 @@ bool reiniciar(bool repetir){
 
 //Se definen las respuestas en caso de que el discriminante sea positivo
 void d_positivo(float a, float b, float c, float dis){
+
     //Se calculan las dos respuestas
     float r1 = ((-b)+sqrt(dis))/(2*a);
     float r2 = ((-b)-sqrt(dis))/(2*a);
@@ -87,7 +89,7 @@ void d_negativo(float a, float b, float c, float dis){
 
 
 int main(){
-    //Se define las variables tipo string donde se introduciráb los numeros. 
+    //Se define las variables tipo string donde se introducirán los numeros. 
     string x2, x1, x0;
     
     //Se definen las variables en donde se almacenara los valores numericos y el discriminante.

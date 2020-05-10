@@ -37,17 +37,17 @@ int main(){
     
     
     //Se solicita el numero
-    cout << "Ingrese el primer numero: "; 
+    cout << "Ingrese el primer entero: "; 
 
     //Se evalúa la entrada, en caso de ser válida, se guardará como un entero en la variable indicada
     //De no ser así, se solicitará hasta que la entrada sea válida. 
     a = convertir(num1);
     
    
-    cout << "Ingrese el segundo numero: ";
+    cout << "Ingrese el segundo entero: ";
     b = convertir(num2);
    
-    cout << "Ingrese el tercer numero: ";
+    cout << "Ingrese el tercer entero: ";
     c = convertir(num3);
     
     //Se promedian las cantidades y se almacenan en la variable
@@ -59,11 +59,3 @@ int main(){
     system("pause");
     return 0;
 }
-
-/*
-Fuentes:
-
-https://stackoverflow.com/questions/4271315/c-how-to-check-an-input-float-variable-for-valid-input
-https://www.youtube.com/watch?v=m2P5A4nR51g
-
-*/
