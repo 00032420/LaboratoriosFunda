@@ -29,6 +29,16 @@ float leer(string numero){ //Se pone como argumento el string de la entrada
     return atof(numero.c_str());
 }
 
+bool reiniciar(bool repetir){
+    cout << "Desea repetir la operacion? [S/N] ";
+    //Se crea la variable para almacenar la respuesta del usuario
+    string rep;
+    //Se introduce la respuesta
+    cin  >> rep;
+    //Si se introdujo una S mayuscula o minuscula, devuelve verdadero, sino falso.
+    return rep == "s" || rep == "S" ? true : false;
+}
+
 //Se define el area en funcion del radio
 float area(double radio){
     return M_PI * (pow(radio,2));
@@ -37,13 +47,6 @@ float area(double radio){
 //Se define el perimetro en funcion del radio
 float perimetro(double radio){
     return 2 * M_PI * radio;
-}
-
-//En caso de que sea 0, se advierte.
-void handleZero(double res){
-    if(res == 0){
-        cout << "El radio de un circulo debe ser mayor a 0." << endl;
-    }
 }
 
 int main(){
@@ -66,21 +69,8 @@ int main(){
         //Se muestran los resultados, en fixed para evitar notacion cientifica y presicion de dos decimales
         cout << "El perimetro del circulo es " << std::fixed << std::setprecision(2) << p << endl;
         cout << "El area del circulo es " << std::fixed << std::setprecision(2) << a << endl;
-        handleZero(r);
         cout << endl;
-        cout << "Desea repetir la operacion? [S/N] ";
-
-        //se pregunta si se quiere relizar la operación de nuevo
-        cin >> rep;
-
-            if(rep == "s" || rep == "S"){
-            //Si se introduce una s, mayuscula o minuscula, el valor repeteición queda verdadero y se repite el ciclo
-            repetir = true;
-            cout << endl;
-            } else {
-            //si no se introduce una s, el valor repeticion queda falso y se termina el programa. 
-            repetir = false;
-            }
+        repetir = reiniciar(repetir);
 
     } while(repetir == true);
 
