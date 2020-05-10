@@ -4,7 +4,6 @@
 #include <cmath> // para Pi y pow()
 #include <iomanip> //Para std__setpresicion
 
-
 using namespace std;
 
 //Se verifica que el numero sea valido
@@ -35,6 +34,7 @@ bool reiniciar(bool repetir){
     string rep;
     //Se introduce la respuesta
     cin  >> rep;
+    cout << endl;
     //Si se introdujo una S mayuscula o minuscula, devuelve verdadero, sino falso.
     return rep == "s" || rep == "S" ? true : false;
 }
@@ -51,10 +51,11 @@ float perimetro(double radio){
 
 int main(){
     //Se define la variable tipo string donde se introducirá el numero, y 
-    string radio, rep;
+    string radio;
     //Se definen las variables en donde se almacenara e radio y los calculos
     float r, p, a;
-    bool repetir; //Valor de repetición, si es verdadero el programa se reinicia para hacer las operaciones de nuevo.
+    //Valor de repetición, si es verdadero el programa se reinicia para hacer las operaciones de nuevo.
+    bool repetir; 
     
     do{
         //Se solicita la entrada del radio 
@@ -70,6 +71,8 @@ int main(){
         cout << "El perimetro del circulo es " << std::fixed << std::setprecision(2) << p << endl;
         cout << "El area del circulo es " << std::fixed << std::setprecision(2) << a << endl;
         cout << endl;
+        
+        //Se pregunta si se quiere repetir la operacion 
         repetir = reiniciar(repetir);
 
     } while(repetir == true);

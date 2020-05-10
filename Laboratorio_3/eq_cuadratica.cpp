@@ -4,7 +4,6 @@
 #include <cmath> // Para operaciones funciones matemáticas
 #include <iomanip> //Para la presicion de decimales y modo fixed
 
-
 using namespace std;
 
 //Función que verifica que el numero sea valido
@@ -36,7 +35,6 @@ bool reiniciar(bool repetir){
     //Si se introduce s, ya sea mayuscula o minuscula, devuelve verdadero, caso contrario devuelve falso.
     return rep == "s" || rep == "S" ? true : false;       
 }
-
 
 //Se definen las respuestas en caso de que el discriminante sea positivo
 void d_positivo(float a, float b, float c, float dis){
@@ -79,7 +77,6 @@ void d_negativo(float a, float b, float c, float dis){
         cout << "X1: " << parte_real << std::fixed << std::setprecision(2) << " - " << (-parte_img) <<  "i" << endl;
         cout << "X2: " << parte_real << " + " << std::fixed << std::setprecision(2) << (-parte_img) <<  "i" << endl;;
     }
-    
 }
 
 
@@ -122,7 +119,7 @@ int main(){
         
         cout << endl;
 
-        //se pregunta si se quiere relizar la operación de nuevo
+        //Se pregunta si se quiere repetir la operacion. 
         repetir = reiniciar(repetir);
         
     } while(repetir == true);
