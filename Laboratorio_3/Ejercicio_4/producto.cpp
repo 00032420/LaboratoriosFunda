@@ -76,5 +76,6 @@ int main(){
     totalProducto = precio*cantidad;
     cout << "El total en dicho producto es: $" << std::fixed << std::setprecision(2) << totalProducto << endl << endl;
 
+    system("pause");
     return 0;
 }
