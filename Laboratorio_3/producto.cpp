@@ -52,18 +52,44 @@ float leerCantidad(string numero){
     return atof(numero.c_str());
 }
 
+bool reiniciar(bool repetir){
+    cout << "Desea repetir la operacion? [S/N] ";
+    //Se crea la variable para almacenar la respuesta del usuario
+    string rep;
+    //Se introduce la respuesta
+    cin  >> rep;
+    cout << endl;
+    //Si se introdujo una S mayuscula o minuscula, devuelve verdadero, sino falso.
+    return (rep == "s" || rep == "S") ? true : false;
+}
+
+void leerProducto(){
+    string producto;
+    getline(cin,producto);
+    cin.clear();
+    cin.ignore(123, '\n');
+}
+
 int main(){
+
+    bool repetir;
+
+    do{
 
     string producto, txtPrecio, txtCantidad; 
     float precio, totalProducto, cantidad, total;
+
     cout << "Ingrese nombre del producto: ";
-    getline(cin, producto);
+    leerProducto();
     cout << "Ingrese precio del producto: $";
     precio = leerPrecio(txtPrecio);
     cout << "Ingrese la cantidad: ";
     cantidad = leerCantidad(txtCantidad);
     totalProducto = precio*cantidad;
     cout << "El total en dicho producto es: $" << std::fixed << std::setprecision(2) << totalProducto << endl;
-    
+
+    repetir = reiniciar(repetir);
+    } while(repetir == true);
+
     return 0;
 }
