@@ -49,7 +49,7 @@ int main(){
     bool repetir;
     
     do {
-        //Se solicita el numero
+    //Se solicita el numero
     cout << "Ingrese el primer entero: "; 
 
     //Se evalúa la entrada, en caso de ser válida, se guardará como un entero en la variable indicada

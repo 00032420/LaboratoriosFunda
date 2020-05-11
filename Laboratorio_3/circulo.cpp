@@ -2,7 +2,7 @@
 #include <string> //Para string a float y validacion de datos
 #include <cstdlib> 
 #include <cmath> // para Pi y pow()
-#include <iomanip> //Para std__setpresicion
+#include <iomanip> //Para std__setprecision
 
 using namespace std;
 
@@ -40,6 +40,7 @@ bool reiniciar(bool repetir){
     return (rep == "s" || rep == "S") ? true : false;
 }
 
+//Funcion para el area
 void area(double radio){
     //Se define el area en funcion del radio
     float a = M_PI * (pow(radio,2));
@@ -47,9 +48,11 @@ void area(double radio){
     cout << "El area del circulo es " << std::fixed << std::setprecision(2) << a << endl;  
 }
 
-//Se define el perimetro en funcion del radio
+//Funcion para el perimetro
 void perimetro(double radio){
+    //Se define el perimetro en funcion del radio
     float p = 2 * M_PI * radio;
+    //Se muestra el resultado, en modo fixed y dos decimales.
     cout << "El perimetro del circulo es " << std::fixed << std::setprecision(2) << p << endl;   
 }
 
