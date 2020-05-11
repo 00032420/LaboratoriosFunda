@@ -1,21 +1,21 @@
 #include <iostream>
-//Se incluyen librerias para la validación de datos.
-#include <string>
-#include <cstdlib>
-#include <cmath>
+#include <string> //Para string a float y validacion de datos
+#include <cstdlib> 
+#include <cmath> // Para operaciones funciones matemáticas
+#include <iomanip> //Para la presicion de decimales y modo fixed
 
 using namespace std;
 
 //La siguiente función verifica que se haya introducido un número válido y lo convierte de string a float
 
-float convertir(string numero){ //Se pone como argumento el string del numero
+float leer(string numero){ //Se pone como argumento el string del numero
 
     /*Mientras se introduzca un número
         y alguno de sus caracteres no coincida con los permitidos:  */
     while(cin >> numero && numero.find_first_not_of("1234567890-") != string::npos){
 
         //Se advierte el error
-        cout << "Numero invalido." << endl;
+        cout << "Numero invalido." << endl << endl;
         cout << "Por favor intente de nuevo: ";
 
         //Se borra la entrada anterior 
@@ -29,33 +29,49 @@ float convertir(string numero){ //Se pone como argumento el string del numero
     return atof(numero.c_str() );
 }
 
+bool reiniciar(bool repetir){
+    cout << endl << "Desea repetir la operacion? [S/N] ";
+    //Se crea la variable para almacenar la respuesta del usuario
+    string rep;
+    //Se introduce la respuesta
+    cin >> rep;
+    cout << endl;
+    //Si se introduce s, ya sea mayuscula o minuscula, devuelve verdadero, caso contrario devuelve falso.
+    return rep == "s" || rep == "S" ? true : false;  
+}
+
 int main(){
    //Se declaran variables tipo string para la entrada de numeros. 
     string num1 , num2, num3;
-    //Se declaran enteros para luego almacenar los strings convertidos y el promedio
+    //Se declaran enteros para luego almacenar los strings convertidos
     double a, b, c, promedio;
+    //Se declara el valor de repeticion. Si este es verdadero, se repite la operacion
+    bool repetir;
     
-    
-    //Se solicita el numero
+    do {
+        //Se solicita el numero
     cout << "Ingrese el primer entero: "; 
 
     //Se evalúa la entrada, en caso de ser válida, se guardará como un entero en la variable indicada
     //De no ser así, se solicitará hasta que la entrada sea válida. 
-    a = convertir(num1);
+    a = leer(num1);
     
-   
     cout << "Ingrese el segundo entero: ";
-    b = convertir(num2);
+    b = leer(num2);
    
     cout << "Ingrese el tercer entero: ";
-    c = convertir(num3);
+    c = leer(num3);
     
     //Se promedian las cantidades y se almacenan en la variable
-    promedio = round((a+b+c)/3); 
+    promedio = (a+b+c)/3; 
 
-    //Se muetra el resultado. 
-    cout << "El promedio es " << promedio << endl;
+    //Se muetra el resultado en modo fixed y dos decimales.
+    cout << endl << "El promedio es " << std::fixed << std::setprecision(2) << promedio << endl;
 
-    system("pause");
+    //Se pregunta si se desea repetir la operacion
+    repetir = reiniciar(repetir);
+
+    } while(repetir == true);
+
     return 0;
 }

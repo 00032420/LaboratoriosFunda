@@ -92,14 +92,14 @@ int main(){
     
     do{
         //Se solicita la entrada del respectivo coeficiente
-        cout << "Ingrese A: ";
+        cout << "Ingrese el valor de 'a' : ";
         //Se verifica y convierte a valor numerico.
         a = leer(x2);
 
-        cout << "Ingrese B: ";
+        cout << "Ingrese el valor de 'b' : ";
         b = leer(x1);
 
-        cout << "Ingrese C: ";
+        cout << "Ingrese el valor de 'c' : ";
         c = leer(x0);
 
         //Se guarda el valor del discriminante 
