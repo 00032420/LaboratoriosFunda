@@ -36,7 +36,7 @@ float leerCantidad(string numero){
         if(atof(numero.c_str()) < 0){ //Si se introdujo un numero valido, pero negativo, se advierte
             cout  << "La cantidad de productos no puede ser negativa." << endl;
         }
-        if(numero.find_first_of(".") == string::npos){
+        if(numero.find_first_of(".") != string::npos){
             cout << "La cantidad de productos debe ser un numero entero." << endl;
         }
         //Se borra la entrada anterior
