@@ -2,6 +2,7 @@
 #include <string>
 #include <cstdlib> 
 #include <iomanip>
+#include <sstream>
 
 using namespace std;
 
@@ -22,7 +23,6 @@ float leerPrecio(string numero){
         cout << "Por favor intente de nuevo." << endl << endl;
         cout << "Ingrese el precio de producto: $";
     }
-    cout << endl;
     //Si se introdujo un numero valido, se devuelve convertido a float
     return atof(numero.c_str());
 }
@@ -52,44 +52,29 @@ float leerCantidad(string numero){
     return atof(numero.c_str());
 }
 
-bool reiniciar(bool repetir){
-    cout << "Desea repetir la operacion? [S/N] ";
-    //Se crea la variable para almacenar la respuesta del usuario
-    string rep;
-    //Se introduce la respuesta
-    cin  >> rep;
-    cout << endl;
-    //Si se introdujo una S mayuscula o minuscula, devuelve verdadero, sino falso.
-    return (rep == "s" || rep == "S") ? true : false;
-}
-
-void leerProducto(){
-    string producto;
-    getline(cin,producto);
-    cin.clear();
-    cin.ignore(123, '\n');
-}
-
 int main(){
 
-    bool repetir;
-
-    do{
-
+    //Se declaran las variables tipo string para la introduccion de datos
     string producto, txtPrecio, txtCantidad; 
+    //Se declaran las variable snumericas para almacenar los datos
     float precio, totalProducto, cantidad, total;
 
+    //Se solicita la entrada del producto
     cout << "Ingrese nombre del producto: ";
-    leerProducto();
+    //Para habilitar multiples palabras, se almacena la linea en su respectiva variable
+    getline(cin, producto);
+
+    //Se solicita el valor del precio y se guardará solo si es valido
     cout << "Ingrese precio del producto: $";
     precio = leerPrecio(txtPrecio);
+
+    //Se solicita la cantidad y se guardará si es valida
     cout << "Ingrese la cantidad: ";
     cantidad = leerCantidad(txtCantidad);
-    totalProducto = precio*cantidad;
-    cout << "El total en dicho producto es: $" << std::fixed << std::setprecision(2) << totalProducto << endl;
 
-    repetir = reiniciar(repetir);
-    } while(repetir == true);
+    //Se calcula el monto total y se muestra en pantalla, modo fixed y dos decimales.
+    totalProducto = precio*cantidad;
+    cout << "El total en dicho producto es: $" << std::fixed << std::setprecision(2) << totalProducto << endl << endl;
 
     return 0;
 }
