@@ -6,7 +6,7 @@
 
 using namespace std;
 
-//Se verifica que el numero sea valido
+//Se verifica que el numero sea introducido valido
 float leer(string numero){ //Se pone como argumento el string de la entrada
     //Si la entrada contiene algun simbolo no admitido o fuera de rango, se hace lo siguiente:
     while(cin >> numero && numero.find_first_not_of("1234567890.") != string::npos){

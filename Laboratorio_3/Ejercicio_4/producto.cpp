@@ -6,7 +6,7 @@
 
 using namespace std;
 
-//Funcion que verifica que eel precio introducido sea valido
+//Funcion que verifica que el precio introducido sea valido
 float leerPrecio(string numero){
     //Mientras se introduzca un numero y este incluya un caracter no admitido, se hace lo siguiente:
     while(cin >> numero && numero.find_first_not_of("1234567890.") != string::npos){

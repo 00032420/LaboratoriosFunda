@@ -6,8 +6,7 @@
 
 using namespace std;
 
-//La siguiente función verifica que se haya introducido un número válido y lo convierte de string a float
-
+//Funcion que verifica que el numero introducido sea valido
 float leer(string numero){ //Se pone como argumento el string del numero
 
     /*Mientras se introduzca un número
