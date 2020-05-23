@@ -57,19 +57,19 @@ void divisores(int n){
 
     default:
 
-    cout << endl << "Los divisores de " << n << " son: ";
-    //Se itera desde el 1 hasta el valor absoluto del numero
-        for(int i = 1; i <=abs(n);  i++){
+        cout << endl << "Los divisores de " << n << " son: ";
+            //Se itera desde el 1 hasta el valor absoluto del numero
+            for(int i = 1; i <=abs(n);  i++){
             //En cada iteracion se verifica que el modulo sea 0
-          if(abs(n)%i == 0){
+            if(abs(n)%i == 0){
               //Si el modulo es 0:
-             (i != n)?
-             //Se imprime cada divisor, son el signo +/- separado por una coma
-             cout << mm << i << ", "
-              :
-              //Se imprime el último seguido de un punto
-              cout << mm << i << ".";
-              }
+                (i != n)?
+                 //Se imprime cada divisor, son el signo +/- separado por una coma
+                 cout << mm << i << ", "
+                 :
+                 //Se imprime el último seguido de un punto
+                  cout << mm << i << ".";
+                 }
          }
     }
 }
