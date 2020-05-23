@@ -4,7 +4,7 @@
 using namespace std;
 
 //Función que verifica que se haya introducido un entero válido.
-int leerEntero(string numero){ //Se pone como argumento el string del numero
+long int leerEntero(string numero){ //Se pone como argumento el string del numero
 
     /*Mientras se introduzca un número
         y alguno de sus caracteres no coincida con los permitidos:  */
@@ -21,7 +21,7 @@ int leerEntero(string numero){ //Se pone como argumento el string del numero
         cin.ignore(123, '\n');
     }
 
-    //En caso de haber introducido un número válido, se devuelve convertido a float.
+    //En caso de haber introducido un número válido, se devuelve convertido a float, pero solo se toma la parte entera.
     return (int) atof(numero.c_str() );
 }
 
@@ -38,10 +38,13 @@ void esDivisible(int n1,int n2){
             }
 }
 
+//Función que imprime los divisores de un numero
 void divisores(int n){
+    //Se define el signo +/-
 
     char mm = 241;
 
+    //Se evaluan los casos
     switch (n)
     {
     case 0:
@@ -54,15 +57,20 @@ void divisores(int n){
 
     default:
 
-        cout << endl << "Los divisores de " << n << " son: ";
-    for(int i = 1; i <=abs(n);  i++){
-        if(abs(n)%i == 0){
-            (i != n)?
-            cout << mm << i << ", "
-            :
-            cout << mm << i << ".";
-            }
-        }
+    cout << endl << "Los divisores de " << n << " son: ";
+    //Se itera desde el 1 hasta el valor absoluto del numero
+        for(int i = 1; i <=abs(n);  i++){
+            //En cada iteracion se verifica que el modulo sea 0
+          if(abs(n)%i == 0){
+              //Si el modulo es 0:
+             (i != n)?
+             //Se imprime cada divisor, son el signo +/- separado por una coma
+             cout << mm << i << ", "
+              :
+              //Se imprime el último seguido de un punto
+              cout << mm << i << ".";
+              }
+         }
     }
 }
 
@@ -81,22 +89,26 @@ bool reiniciar(bool repetir){
 }
 
 int main(){
+    //Se definen las variables
     bool repetir;
     string num1Txt,num2Txt;
-    int num1,num2;
+    long int num1,num2;
     
-    do{
 
+    do{
+        //Se ingresan y verifican los numeros
     cout << "Ingrese el primer entero: ";
     num1 = leerEntero(num1Txt);
     cout << "Ingrese el segundo entero: ";
     num2 = leerEntero(num1Txt);
     cout << endl;
 
+    //Se ejecutan las funciones
     esDivisible(num1,num2);
     divisores(num1);
 
     cout << endl;
+    //Se pregunta si se quiere repetir la operacion.
     repetir = reiniciar(repetir);
 
     } while(repetir == true);
