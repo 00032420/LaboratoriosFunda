@@ -45,17 +45,8 @@ void divisores(int n){
     char mm = 241;
 
     //Se evaluan los casos
-    switch (n)
-    {
-    case 0:
-        cout << "El 0 tiene infinitos divisores." << endl;
-        break;
-    
-    case 1:
-        cout << "El 1 tiene un unico divisor, que es el mismo." << endl;
-        break;
-
-    default:
+    (n == 0)?
+        cout << "El 0 tiene infinitos divisores." << endl:
 
         cout << endl << "Los divisores de " << n << " son: ";
             //Se itera desde el 1 hasta el valor absoluto del numero
@@ -72,9 +63,6 @@ void divisores(int n){
                  }
          }
     }
-}
-
-
 
 //Función para repetir la operación.
 bool reiniciar(bool repetir){
