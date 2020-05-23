@@ -47,6 +47,7 @@ void divisores(int n){
     //Se evaluan los casos
     (n == 0)?
         cout << "El 0 tiene infinitos divisores." << endl:
+        
         cout << endl << "Los divisores de " << n << " son: ";
             //Se itera desde el 1 hasta el valor absoluto del numero
             for(int i = 1; i <=abs(n);  i++){
