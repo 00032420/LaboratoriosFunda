@@ -39,15 +39,16 @@ void esDivisible(int n1,int n2){
 }
 
 //Función que imprime los divisores de un numero
-void divisores(int n){
+void divisores(int n, int d){
     //Se define el signo +/-
 
     char mm = 241;
 
     //Se evaluan los casos
+    if(d == 0) return;
     (n == 0)?
         cout << "El 0 tiene infinitos divisores." << endl:
-        
+
         cout << endl << "Los divisores de " << n << " son: ";
             //Se itera desde el 1 hasta el valor absoluto del numero
             for(int i = 1; i <=abs(n);  i++){
@@ -56,8 +57,7 @@ void divisores(int n){
               //Si el modulo es 0:
                 (i != n)?
                  //Se imprime cada divisor, son el signo +/- separado por una coma
-                 cout << mm << i << ", "
-                 :
+                 cout << mm << i << ", ":
                  //Se imprime el último seguido de un punto
                   cout << mm << i << ".";
                  }
@@ -93,7 +93,7 @@ int main(){
 
     //Se ejecutan las funciones
     esDivisible(num1,num2);
-    divisores(num1);
+    divisores(num1,num2);
 
     cout << endl;
     //Se pregunta si se quiere repetir la operacion.
