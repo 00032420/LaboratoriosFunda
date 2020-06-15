@@ -3,7 +3,7 @@
 using namespace std;
 
 int mcd(int a, int b){
-    //se determina el numero mayor y el menor
+//Si alguno de los numeros introducidos es 0, se retorna el otro, si ambos lo son, retorna 0
     if(a == 0){
         return b;
     } else if (b == 0)
@@ -12,11 +12,11 @@ int mcd(int a, int b){
     } else if(a == 0 && b == 0){
         return 0;
     } else {
-        int M = (a>b)? a: b; 
+    //se determina el numero mayor y el menor
+    int M = (a>b)? a: b; 
     int m = (a<b)? a: b;
     int residuo;
-    do{
-        //Se calcula el residuo del mayor entre el menor
+    do{ //Se calcula el residuo del mayor entre el menor
         residuo = M%m;
         if(residuo != 0){
             //Si el residuo no es cero, se le asigna el valor del menor al mayor
@@ -69,7 +69,8 @@ int main(){
     //Se calcula y muestra el maximo comun divisor
     cout << "El MCD es " << mcd(numA,numB) << endl;
     //En caso de que los numeros sean primos entre si, se muestra.
-    if(mcd(numA,numB) == 1) cout << "Los numeros son primos entre si." << endl;
+    if(mcd(numA,numB) == 1) {cout << "Los numeros son primos entre si." << endl;}
+    else if(mcd(numA,numB) == 0) {cout << "Se toma por convenio que el mcd(0,0) es 0." << endl;};
     cout << endl;
     //Se pregunta si se quiere repetir la operacion.
     repetir = reiniciar(repetir);
