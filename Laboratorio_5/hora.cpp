@@ -1,14 +1,15 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
+#include <ctime>
 using namespace std;
 
-int leerEntero(string numero, int limite){ //Se pone como argumento el string del numero
+int leerEntero(string numero, int min, int limite){ //Se pone como argumento el string del numero, y los extremos de su rango
     /*Mientras se introduzca un número
         y alguno de sus caracteres no coincida con los permitidos:  */
-    while(cin >> numero && numero.find_first_not_of("1234567890") != string::npos || !(stoi(numero) >= 0 && stoi(numero) <= limite)){
+    while(cin >> numero && numero.find_first_not_of("1234567890") != string::npos || !(stoi(numero) >= min && stoi(numero) <= limite)){
         //Se advierte el error
-        cout << "Numero invalido.El numero debe ser mayor o igual a 0 y menor o igual a " << limite << endl << endl;
+        cout << "Fecha invalida.El numero debe ser mayor o igual a " << min << " y menor o igual a " << limite << endl << endl;
         cout << "Por favor intente de nuevo: ";
         //Se borra la entrada anterior 
         cin.clear();
@@ -50,19 +51,38 @@ bool reiniciar(bool repetir){
 main(){
     bool repetir;
     do{
-    string hhT,mmT,ssT;
-    int hh,mm,ss;
-    cout << "Ingrese la hora: ";
-    hh = leerEntero(hhT,23);
-    cout << "Ingrese los minutos: ";
-    mm = leerEntero(mmT,59);
-    cout << "Ingrese los segundos: ";
-    ss = leerEntero(ssT,59);
-
+    
+    string hhT,mmT,ssT, opT;
+    int hh,mm,ss, op;
+    //Se muestran las opciones
+    cout << "[1] - Introducir hora manualmente." << endl;
+    cout << "[2] - Usar hora del sistema" << endl;
+    cout << "Introduzca una opcion: ";
+    op = leerEntero(opT,1,2);
+    //dependiendo de la opcion del usuario, se definen las variables
+    if (op == 1)
+    {
+        cout << "Ingrese la hora: ";
+        hh = leerEntero(hhT,0,23);
+        cout << "Ingrese los minutos: ";
+        mm = leerEntero(mmT,0,59);
+        cout << "Ingrese los segundos: ";
+        ss = leerEntero(ssT,0,59);
+    } else if (op == 2)
+    {
+        time_t theTime = time(NULL);
+        struct tm *aTime=localtime(&theTime);
+        hh = aTime->tm_hour;
+        mm = aTime->tm_min;
+        ss = aTime->tm_sec;
+    }
+    //Se muestra la hora actual o la hora introducida
     cout << endl << "La hora es: " << setw(2) << setfill('0') << hh << ":"
                            << setw(2) << setfill('0') << mm << ":"
                            << setw(2) << setfill('0') << ss << endl;
+    //se incrementa en un segundo
     sumarSegundo(&hh,&mm,&ss);
+    //Se muestra la hora un segundo despues
     cout << endl << "Esa hora despues de un segundo: " 
                            << setw(2) << setfill('0') << hh << ":"
                            << setw(2) << setfill('0') << mm << ":"
