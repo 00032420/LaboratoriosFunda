@@ -53,10 +53,17 @@ bool bisiesto(int year){
 main(){
     bool repetir;
     do{
-    string aaT,mmT,ddT;
+    string aaT,mmT,ddT, opT;
     //Se definen los dias de cada mes
     int meses[12] = {31,28,31,30,31,30,31,31,30,31,30,31};
-    int aa,mm,dd;
+    int aa,mm,dd, op;
+    //Se muestran las opciones
+    cout << "[1] - Introducir fecha manualmente." << endl;
+    cout << "[2] - Usar fecha del sistema" << endl;
+    cout << "Introduzca una opcion: ";
+    op = leerEntero(opT,1,2);
+
+    if(op == 1){
     //Se solicitan los datos
     cout << "Ingrese el a\244o: ";
     aa = leerEntero(aaT,0,9999);
@@ -66,6 +73,14 @@ main(){
     mm = leerEntero(mmT,1,12);
     cout << "Ingrese el dia: ";
     dd = leerEntero(ddT,1,meses[mm-1]);
+    } else if(op == 2){
+        //si se marca la segunda opcion de guarda la fecha del sistema
+        time_t theTime = time(NULL);
+        struct tm *aTime=localtime(&theTime);
+        aa = (aTime->tm_year) + 1900;
+        mm = aTime->tm_mon;
+        dd = aTime->tm_mday;
+    }
     //Se muestra la fecha original
     cout << endl << "La fecha es: " 
                            << setw(2) << setfill('0') << dd << "/"

@@ -9,7 +9,7 @@ int leerEntero(string numero, int min, int limite){ //Se pone como argumento el 
         y alguno de sus caracteres no coincida con los permitidos:  */
     while(cin >> numero && numero.find_first_not_of("1234567890") != string::npos || !(stoi(numero) >= min && stoi(numero) <= limite)){
         //Se advierte el error
-        cout << "Fecha invalida.El numero debe ser mayor o igual a " << min << " y menor o igual a " << limite << endl << endl;
+        cout << "Dato invalido.El numero debe ser mayor o igual a " << min << " y menor o igual a " << limite << endl << endl;
         cout << "Por favor intente de nuevo: ";
         //Se borra la entrada anterior 
         cin.clear();
@@ -20,6 +20,7 @@ int leerEntero(string numero, int min, int limite){ //Se pone como argumento el 
     return atof(numero.c_str() );
 }
 
+//Se suma el segundo, si la cuenta se reinicia activa los marcadores para el reinicio de las otras variables
 void sumarSegundo(int *hora, int *minutos, int *segundos){
     bool cambioS,cambioM;
     if(*segundos == 59){
@@ -32,7 +33,7 @@ void sumarSegundo(int *hora, int *minutos, int *segundos){
             if(*hora == 23){*hora=0;}else{
             ++*hora;}
         }
-    } 
+    } //Si no se debe reiniciar ninguna cuenta, simplemente aumenta el segundo en uno
     } else {*segundos+=1;}
 }
 
