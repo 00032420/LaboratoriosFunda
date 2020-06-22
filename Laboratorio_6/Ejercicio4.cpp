@@ -3,10 +3,6 @@ using namespace std;
 
 //Función para rellenar los arreglos 
 void leerArreglo(int numeros[], int longitud){
-    if (longitud > 50) {
-        cout << "La longitud de los arreglos debe der menor a 50.";
-        return;}
-
     for(int i= 0; i < longitud; i++){
         cin >> numeros[i];
     }
@@ -16,7 +12,6 @@ void leerArreglo(int numeros[], int longitud){
 void sumarArreglos(int arreglo1[], int arreglo2[], int longitud, int resultante[]){
     for(int i=0; i < longitud; i++){
         resultante[i] = arreglo1[i] + arreglo2[i];
-        cout << resultante[i] << endl;
     }
 }
 
@@ -41,6 +36,10 @@ int main(){
     //Se solicita la longitud de los arreglos a operar
     cout << "Ingrese la longitud de los arreglos: ";
     cin >> longitud;
+    if(longitud > 50){
+        cout << "La longitud de los arreglos no debe ser mayor a 50." << endl;
+        return 0;
+    }
 
     //Se 
     cout << "Ingrese los elementos del primer arreglo: " << endl;
