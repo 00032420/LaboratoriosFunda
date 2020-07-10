@@ -43,11 +43,15 @@ int main(){
 
     //Se 
     cout << "Ingrese los elementos del primer arreglo: " << endl;
+
     leerArreglo(arreglo1, longitud);
+
     cout << "Ingrese los elementos del segundo arreglo: " << endl;
+
     leerArreglo(arreglo2, longitud);
 
-    sumarArreglos(arreglo1,arreglo2,longitud,resultante);
+    sumarArreglos(arreglo1, arreglo2, longitud, resultante);
+    
     cout << "El arreglo resultante es: [";
     desplegarArreglo(resultante, longitud);
     cout << "]" << endl;
