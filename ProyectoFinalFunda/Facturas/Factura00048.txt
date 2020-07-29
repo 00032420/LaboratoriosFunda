@@ -1,0 +1,18 @@
+
+Factura #00048
+
+Nombre del articulo      Cantidad         Precio          Costo
+---------------------------------------------------------------
+Boligrafos paquete              1          $5.00          $5.00
+
+Portaminas 0.7 mm               1          $2.00          $2.00
+
+Minas 0.7 mm                    3          $0.35          $1.05
+
+Cartapacio XL                   5          $1.50          $7.50
+
+Papel Bond (100pcs)            10          $1.25         $12.50
+
+Borrador XL                     1          $1.25          $1.25
+---------------------------------------------------------------
+Costo Total: $29.30

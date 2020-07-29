@@ -1,0 +1,14 @@
+
+Factura #00047
+
+Nombre del articulo      Cantidad         Precio          Costo
+---------------------------------------------------------------
+Insulina Levemir                2         $24.50         $49.00
+
+Insulina NovoRapid              2         $15.67         $31.34
+
+Agujas 0.5 mm                  30          $0.13          $3.90
+
+Gomitas paquete                30          $0.75         $22.50
+---------------------------------------------------------------
+Costo Total: $106.74

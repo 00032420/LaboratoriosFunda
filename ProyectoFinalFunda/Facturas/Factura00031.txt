@@ -1,0 +1,48 @@
+
+Factura #00031
+
+Nombre del articulo      Cantidad         Precio          Costo
+---------------------------------------------------------------
+Pl tanos (1kg)                  5          $1.10          $5.50
+
+Mandarinas (1kg)               10          $1.20         $12.00
+
+Tomate (1kg)                    3          $0.60          $1.80
+
+Lechuga                         2          $0.80          $1.60
+
+Pepino (1kg)                   15          $1.10         $16.50
+
+Zanahoria (1kg)                 7          $0.90          $6.30
+
+Pimiento rojo (1kg)             5          $2.00         $10.00
+
+Calabac¡n (1kg)                 1          $1.30          $1.30
+
+Berenjena (1kg)                 1          $1.20          $1.20
+
+Patata (1kg)                    5          $0.60          $3.00
+
+Ajo (250 gr)                    3          $1.20          $3.60
+
+Garbanzos (1kg)                 2          $1.10          $2.20
+
+Lentejas (1kg)                  1          $1.00          $1.00
+
+Arroz paquete (1kg)             2          $0.67          $1.34
+
+Pasta paquete (1kg)             2          $0.40          $0.80
+
+Nata paquete (0.5l)             1          $1.05          $1.05
+
+Jam¢n de pavo (400 g            5          $1.50          $7.50
+
+Lim¢n (1kg)                    15          $1.50         $22.50
+
+Pollo entero (2kg)              2          $3.80          $7.60
+
+Huevos (1 docena)               2          $1.10          $2.20
+
+Leche (1l)                     20          $0.90         $18.00
+---------------------------------------------------------------
+Costo Total: $126.99

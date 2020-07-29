@@ -1,0 +1,6 @@
+Tornillos 7 0.15
+Tuercas 5 0.15
+Pupusas 12 0.50
+Empaques 4 0.25
+Pastelitos 6 0.25
+Jabonera 1 2.50
